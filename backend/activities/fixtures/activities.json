@@ -7,7 +7,8 @@
       "description": "Gastronomic tour through traditional bars in the historic city center.",
       "image_url": "https://images.unsplash.com/photo-1544025162-d76694265947",
       "min_people": 4,
-      "max_people": 10
+      "max_people": 10,
+      "location": { "lat": 41.3839, "lng": 2.1763 }
     }
   },
   {
@@ -16,9 +17,10 @@
     "fields": {
       "title": "Corporate Escape Room",
       "description": "Collaborative activity to solve puzzles and team challenges.",
-      "image_url": "https://images.unsplash.com/photo-1603575448360-153f093fd0a9",
+      "image_url": "https://images.unsplash.com/photo-1581143761812-6d1474cdb9d4",
       "min_people": 3,
-      "max_people": 6
+      "max_people": 6,
+      "location": { "lat": 41.3902, "lng": 2.1540 }
     }
   },
   {
@@ -29,7 +31,8 @@
       "description": "Private cooking class with a professional chef and final tasting.",
       "image_url": "https://images.unsplash.com/photo-1551218808-94e220e084d2",
       "min_people": 5,
-      "max_people": 12
+      "max_people": 12,
+      "location": { "lat": 41.3948, "lng": 2.1610 }
     }
   },
   {
@@ -38,9 +41,10 @@
     "fields": {
       "title": "City Bike Tour",
       "description": "Guided bike tour through the main points of interest.",
-      "image_url": "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf",
+      "image_url": "https://images.unsplash.com/photo-1567070694334-1c48494f8995",
       "min_people": 6,
-      "max_people": 15
+      "max_people": 15,
+      "location": { "lat": 41.3765, "lng": 2.1920 }
     }
   },
   {
@@ -49,9 +53,250 @@
     "fields": {
       "title": "Local Wine Tasting",
       "description": "Guided tasting of local wines with a sommelier.",
+      "image_url": "https://images.unsplash.com/photo-1690986535140-dc095e75b726",
+      "min_people": 4,
+      "max_people": 8,
+      "location": { "lat": 41.3994, "lng": 2.1701 }
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 6,
+    "fields": {
+      "title": "Outdoor Team Challenge",
+      "description": "Competitive outdoor challenges designed to strengthen teamwork and communication.",
+      "image_url": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d",
+      "min_people": 6,
+      "max_people": 20,
+      "location": { "lat": 41.4120, "lng": 2.1800 }
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 7,
+    "fields": {
+      "title": "Cooking Team Competition",
+      "description": "Teams compete to prepare dishes under time pressure guided by a professional chef.",
+      "image_url": "https://images.unsplash.com/photo-1556910103-1c02745aae4d",
+      "min_people": 6,
+      "max_people": 16,
+      "location": { "lat": 41.3879, "lng": 2.1590 }
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 8,
+    "fields": {
+      "title": "Wine & Cheese Pairing Workshop",
+      "description": "Interactive workshop learning how to pair wines and cheeses while networking.",
       "image_url": "https://images.unsplash.com/photo-1510626176961-4b57d4fbad03",
       "min_people": 4,
-      "max_people": 8
+      "max_people": 12,
+      "location": { "lat": 41.3825, "lng": 2.1707 }
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 9,
+    "fields": {
+      "title": "Innovation Hackathon",
+      "description": "Creative problem-solving session where teams develop innovative ideas together.",
+      "image_url": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
+      "min_people": 6,
+      "max_people": 30,
+      "location": { "lat": 41.3974, "lng": 2.1916 }
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 10,
+    "fields": {
+      "title": "Scavenger Hunt",
+      "description": "City-based scavenger hunt encouraging collaboration and strategic thinking.",
+      "image_url": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+      "min_people": 6,
+      "max_people": 25,
+      "location": { "lat": 41.3810, "lng": 2.1734 }
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 11,
+    "fields": {
+      "title": "Improvisation Theater Workshop",
+      "description": "Fun improv exercises to enhance creativity, confidence, and communication skills.",
+      "image_url": "https://images.unsplash.com/photo-1507924538820-ede94a04019d",
+      "min_people": 5,
+      "max_people": 15,
+      "location": { "lat": 41.4036, "lng": 2.1744 }
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 12,
+    "fields": {
+      "title": "Mindfulness & Stress Management Session",
+      "description": "Guided session focused on relaxation, mindfulness, and mental well-being.",
+      "image_url": "https://images.unsplash.com/photo-1506126613408-eca07ce68773",
+      "min_people": 4,
+      "max_people": 20,
+      "location": { "lat": 41.4101, "lng": 2.1526 }
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 13,
+    "fields": {
+      "title": "CSR Volunteering Experience",
+      "description": "Corporate social responsibility activity supporting local community projects.",
+      "image_url": "https://images.unsplash.com/photo-1509099836639-18ba1795216d",
+      "min_people": 6,
+      "max_people": 40,
+      "location": { "lat": 41.3564, "lng": 2.1554 }
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 14,
+    "fields": {
+      "title": "Kayaking Team Adventure",
+      "description": "Outdoor kayaking experience promoting coordination and trust among teams.",
+      "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+      "min_people": 6,
+      "max_people": 18,
+      "location": { "lat": 41.6742, "lng": 2.7903 }
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 15,
+    "fields": {
+      "title": "Leadership Workshop",
+      "description": "Interactive workshop focused on leadership development and decision-making.",
+      "image_url": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d",
+      "min_people": 5,
+      "max_people": 25,
+      "location": { "lat": 41.3928, "lng": 2.1620 }
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 16,
+    "fields": {
+      "title": "Office Olympics",
+      "description": "Fun mini-games inspired by sports to encourage friendly competition.",
+      "image_url": "https://images.unsplash.com/photo-1526403226-0f97c9f1c9c3",
+      "min_people": 8,
+      "max_people": 30,
+      "location": { "lat": 41.3640, "lng": 2.1487 }
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 17,
+    "fields": {
+      "title": "Creative Painting Workshop",
+      "description": "Collaborative painting session to boost creativity and team bonding.",
+      "image_url": "https://images.unsplash.com/photo-1513364776144-60967b0f800f",
+      "min_people": 4,
+      "max_people": 14,
+      "location": { "lat": 41.4007, "lng": 2.1585 }
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 18,
+    "fields": {
+      "title": "Virtual Reality Team Experience",
+      "description": "Immersive VR challenges designed to promote collaboration and innovation.",
+      "image_url": "https://images.unsplash.com/photo-1593508512255-86ab42a8e620",
+      "min_people": 4,
+      "max_people": 10,
+      "location": { "lat": 41.3890, "lng": 2.1658 }
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 19,
+    "fields": {
+      "title": "Problem-Solving Workshop",
+      "description": "Hands-on workshop focused on analytical thinking and group problem-solving.",
+      "image_url": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3",
+      "min_people": 5,
+      "max_people": 25,
+      "location": { "lat": 41.3950, "lng": 2.1815 }
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 20,
+    "fields": {
+      "title": "Stand-Up Comedy Workshop",
+      "description": "Lighthearted workshop to build confidence and presentation skills.",
+      "image_url": "https://images.unsplash.com/photo-1507924538820-ede94a04019d",
+      "min_people": 5,
+      "max_people": 15,
+      "location": { "lat": 41.3809, "lng": 2.1675 }
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 21,
+    "fields": {
+      "title": "Photography Walk",
+      "description": "Guided photography walk encouraging creativity and visual storytelling.",
+      "image_url": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+      "min_people": 4,
+      "max_people": 12,
+      "location": { "lat": 41.3712, "lng": 2.1891 }
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 22,
+    "fields": {
+      "title": "Sustainability Workshop",
+      "description": "Interactive workshop focused on sustainability and eco-friendly practices.",
+      "image_url": "https://images.unsplash.com/photo-1501004318641-b39e6451bec6",
+      "min_people": 6,
+      "max_people": 30,
+      "location": { "lat": 41.4181, "lng": 2.2146 }
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 23,
+    "fields": {
+      "title": "Team Trivia Night",
+      "description": "Fun trivia competition promoting collaboration and friendly rivalry.",
+      "image_url": "https://images.unsplash.com/photo-1511512578047-dfb367046420",
+      "min_people": 6,
+      "max_people": 40,
+      "location": { "lat": 41.3755, "lng": 2.1499 }
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 24,
+    "fields": {
+      "title": "Time Management Workshop",
+      "description": "Practical workshop to improve productivity and time management skills.",
+      "image_url": "https://images.unsplash.com/photo-1506784983877-45594efa4cbe",
+      "min_people": 5,
+      "max_people": 25,
+      "location": { "lat": 41.3862, "lng": 2.1739 }
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 25,
+    "fields": {
+      "title": "Outdoor Yoga Session",
+      "description": "Relaxing outdoor yoga session focused on balance and well-being.",
+      "image_url": "https://images.unsplash.com/photo-1506126613408-eca07ce68773",
+      "min_people": 4,
+      "max_people": 20,
+      "location": { "lat": 41.5819, "lng": 1.8339 }
     }
   }
 ]

@@ -6,6 +6,7 @@ class Activity(models.Model):
     image_url = models.URLField()
     min_people = models.PositiveIntegerField()
     max_people = models.PositiveIntegerField()
+    location = models.JSONField(null=True, blank=True)
 
     def __str__(self):
         return self.title
