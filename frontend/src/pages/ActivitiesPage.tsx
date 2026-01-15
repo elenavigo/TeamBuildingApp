@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { getActivities, type Activity } from '../api/activities';
 import { ActivityCard } from './ActivityCard';
 
@@ -7,6 +7,7 @@ export const ActivitiesPage = () => {
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
   const [nextPage, setNextPage] = useState<string | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   const loadMore = useCallback(async () => {
     if (!nextPage) return;
@@ -31,15 +32,19 @@ export const ActivitiesPage = () => {
     fetchActivities();
 
     const handleScroll = () => {
+      if (!containerRef.current) return;
+
+      const { scrollTop, scrollHeight, clientHeight } = containerRef.current;
+
       const hasScrolledToBottom =
-        window.scrollY + window.innerHeight >=
-        document.documentElement.scrollHeight - 100;
+        scrollTop + clientHeight >= scrollHeight - 100;
 
       if (hasScrolledToBottom) loadMore();
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    containerRef.current?.addEventListener('scroll', handleScroll);
+    return () =>
+      containerRef.current?.removeEventListener('scroll', handleScroll);
   }, [loadMore]);
 
   if (loading) {
@@ -51,7 +56,7 @@ export const ActivitiesPage = () => {
   }
 
   return (
-    <div className="flex-1 p-8">
+    <div className="flex-1 overflow-y-auto p-8" ref={containerRef}>
       <span className="text-2xl font-medium uppercase tracking-wide">
         Moments
       </span>
