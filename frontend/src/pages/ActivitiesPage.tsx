@@ -27,7 +27,7 @@ export const ActivitiesPage = () => {
   return (
     <div className="flex-1 overflow-y-auto p-8">
       <span className="text-sm font-medium text-blue-600 uppercase tracking-wide">
-        Perk · Moments
+        Moments
       </span>
 
       <h3 className="text-3xl font-bold mt-2">Moments</h3>
