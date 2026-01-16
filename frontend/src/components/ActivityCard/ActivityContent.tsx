@@ -1,4 +1,5 @@
 import type { ActivityItem } from './types';
+import Location from './../../assets/location.svg?react';
 
 export const ActivityContent = ({ activity }: { activity: ActivityItem }) => {
   return (
@@ -11,7 +12,10 @@ export const ActivityContent = ({ activity }: { activity: ActivityItem }) => {
 
       <div className="mt-2 text-sm text-gray-500">
         {activity.distance !== undefined ? (
-          <span>{activity.distance.toFixed(2)} km from office</span>
+          <div className="flex items-center gap-1">
+            <Location className="inline-block h-4 w-4" />
+            <span>{activity.distance.toFixed(2)} km from office</span>
+          </div>
         ) : (
           <span>Distance not available</span>
         )}
