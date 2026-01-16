@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { type Activity } from '../api/activities';
-import { ActivityCardContent } from './ActivityCardContent';
-import { ActivityCardBadge } from './ActivityCardBadge';
+import { type Activity } from '../../api/activities';
+import { ActivityContent } from './ActivityContent';
+import { ActivityBadge } from './ActivityBadge';
 
 export const ActivityCard = ({ activity }: { activity: Activity }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -22,13 +22,13 @@ export const ActivityCard = ({ activity }: { activity: Activity }) => {
         />
 
         {imageLoaded ? (
-          <ActivityCardBadge category={activity.category} />
+          <ActivityBadge category={activity.category} />
         ) : (
           <div className="absolute inset-0 bg-gray-200 animate-pulse" />
         )}
       </div>
 
-      {imageLoaded && <ActivityCardContent activity={activity} />}
+      {imageLoaded && <ActivityContent activity={activity} />}
     </li>
   );
 };

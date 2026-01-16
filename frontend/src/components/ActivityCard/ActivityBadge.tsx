@@ -6,7 +6,7 @@ const categoryTypeColors: Record<string, string> = {
   creative: 'bg-pink-100 text-pink-800',
 };
 
-export const ActivityCardBadge = ({ category }: { category: string }) => {
+export const ActivityBadge = ({ category }: { category: string }) => {
   return (
     <span
       className={`absolute top-4 left-4 text-xs font-medium px-3 py-1 rounded-full ${

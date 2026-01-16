@@ -1,6 +1,6 @@
-import { type Activity } from '../api/activities';
+import { type Activity } from '../../api/activities';
 
-export const ActivityCardContent = ({ activity }: { activity: Activity }) => {
+export const ActivityContent = ({ activity }: { activity: Activity }) => {
   return (
     <div className="p-6 flex flex-col">
       <h2 className="text-lg font-semibold mb-2">{activity.title}</h2>

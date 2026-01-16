@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { getActivities, type Activity } from '../api/activities';
-import { ActivityCard } from './ActivityCard';
+import { ActivityCard } from '../components/ActivityCard';
 
 export const ActivitiesPage = () => {
   const [activities, setActivities] = useState<Activity[]>([]);
