@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { type Activity } from '../api/activities';
 
 const categoryTypeColors: Record<string, string> = {
@@ -9,42 +10,56 @@ const categoryTypeColors: Record<string, string> = {
 };
 
 export const ActivityCard = ({ activity }: { activity: Activity }) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
-    <li className="group bg-white rounded-2xl shadow-sm shadow-lg hover:scale-105 transition-all duration-300 overflow-hidden">
+    <li
+      className={`group bg-white rounded-2xl shadow-sm shadow-lg hover:scale-105 transition-all duration-300 overflow-hidden ${
+        imageLoaded && 'animate-fadeIn'
+      }`}
+    >
       <div className="relative h-48">
         <img
           loading="lazy"
           src={activity.image_url}
           alt={activity.title}
-          className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+          className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+          onLoad={() => setImageLoaded(true)}
         />
 
-        <span
-          className={`absolute top-4 left-4 text-xs font-medium px-3 py-1 rounded-full ${
-            categoryTypeColors[activity.category] || 'bg-gray-100 text-gray-800'
-          }`}
-        >
-          {activity.category}
-        </span>
+        {imageLoaded ? (
+          <span
+            className={`absolute top-4 left-4 text-xs font-medium px-3 py-1 rounded-full ${
+              categoryTypeColors[activity.category] ||
+              'bg-gray-100 text-gray-800'
+            }`}
+          >
+            {activity.category}
+          </span>
+        ) : (
+          <div className="absolute inset-0 bg-gray-200 animate-pulse" />
+        )}
       </div>
 
-      <div className="p-6 flex flex-col">
-        <h2 className="text-lg font-semibold mb-2">{activity.title}</h2>
+      {imageLoaded && (
+        <div className="p-6 flex flex-col">
+          <h2 className="text-lg font-semibold mb-2">{activity.title}</h2>
 
-        <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-          {activity.description}
-        </p>
+          <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+            {activity.description}
+          </p>
 
-        <div className="mt-auto flex items-center justify-between text-sm">
-          <span className="text-gray-500">
-            Ideal for {activity.min_people}–{activity.max_people} people
-          </span>
+          <div className="mt-auto flex items-center justify-between text-sm">
+            <span className="text-gray-500">
+              Ideal for {activity.min_people}–{activity.max_people} people
+            </span>
 
-          <span className="font-medium group-hover:underline">
-            View details →
-          </span>
+            <span className="font-medium group-hover:underline">
+              View details →
+            </span>
+          </div>
         </div>
-      </div>
+      )}
     </li>
   );
 };
