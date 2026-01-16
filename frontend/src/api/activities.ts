@@ -8,6 +8,7 @@ export interface Activity {
   min_people: number;
   max_people: number;
   category: string;
+  location: { lat: number; lng: number };
 }
 
 export type PaginatedResponse = {

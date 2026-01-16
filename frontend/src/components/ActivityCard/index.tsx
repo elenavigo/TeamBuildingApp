@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { type Activity } from '../../api/activities';
 import { ActivityContent } from './ActivityContent';
 import { ActivityBadge } from './ActivityBadge';
+import type { ActivityItem } from './types';
 
-export const ActivityCard = ({ activity }: { activity: Activity }) => {
+export const ActivityCard = ({ activity }: { activity: ActivityItem }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (

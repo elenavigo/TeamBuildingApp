@@ -18,6 +18,7 @@ class ActivityListView(APIView):
                 "min_people": activity.min_people,
                 "max_people": activity.max_people,
                 "category": activity.category,
+                "location": activity.location,
             }
             for activity in paginated_activities
         ]

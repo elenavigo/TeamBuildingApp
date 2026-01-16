@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { getActivities, type Activity } from '../api/activities';
 import { ActivityCard } from '../components/ActivityCard';
+import { getDistanceFromLatLngInKm } from '../utils/geo';
 
 export const ActivitiesPage = () => {
   const [activities, setActivities] = useState<Activity[]>([]);
@@ -9,13 +10,23 @@ export const ActivitiesPage = () => {
   const [nextPage, setNextPage] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
+  const activitiesWithDistance = (activities: Activity[]) => {
+    return activities.map((activity) => ({
+      ...activity,
+      distance: getDistanceFromLatLngInKm(
+        activity.location.lat,
+        activity.location.lng
+      ),
+    }));
+  };
+
   const loadMore = useCallback(async () => {
     if (!nextPage) return;
 
     setLoadingMore(true);
 
     const data = await getActivities(nextPage);
-    setActivities((prev) => [...prev, ...data.results]);
+    setActivities((prev) => [...prev, ...activitiesWithDistance(data.results)]);
     setNextPage(data.next);
 
     setLoadingMore(false);
@@ -24,7 +35,7 @@ export const ActivitiesPage = () => {
   useEffect(() => {
     const fetchActivities = async () => {
       const data = await getActivities();
-      setActivities(data.results);
+      setActivities(activitiesWithDistance(data.results));
       setNextPage(data.next);
       setLoading(false);
     };
