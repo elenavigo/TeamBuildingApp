@@ -8,7 +8,7 @@ export const ActivityCard = ({ activity }: { activity: ActivityItem }) => {
 
   return (
     <li
-      className={`group bg-white rounded-2xl shadow-sm shadow-lg hover:scale-105 transition-all duration-300 overflow-hidden ${
+      className={`flex flex-col justify-between group bg-white rounded-2xl shadow-sm shadow-lg hover:scale-105 transition-all duration-300 overflow-hidden ${
         imageLoaded && 'animate-fadeIn'
       }`}
     >
