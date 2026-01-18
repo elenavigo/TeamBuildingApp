@@ -1,21 +1,14 @@
 import { ActivitiesList } from './pages/ActivitiesList';
+import { Menu } from './components/Menu';
 
 function App() {
   return (
-    <div className="flex h-screen bg-gray-50">
-      <aside className="w-64 bg-white shadow-md flex flex-col p-6">
-        <h1 className="text-2xl font-semibold mb-8">🎡</h1>
-        <nav className="flex flex-col gap-4">
-          <button className="text-gray-700 hover:text-black font-medium transition-colors duration-200 text-left">
-            Moments
-          </button>
-          <button className="text-gray-700 hover:text-black font-medium transition-colors duration-200 text-left">
-            Account
-          </button>
-        </nav>
-      </aside>
+    <div className="flex h-screen bg-gray-50 overflow-hidden">
+      <Menu />
 
-      <ActivitiesList />
+      <main className="flex-1 overflow-y-auto pt-14 md:pt-0">
+        <ActivitiesList />
+      </main>
     </div>
   );
 }
