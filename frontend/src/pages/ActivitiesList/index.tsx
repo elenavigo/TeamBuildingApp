@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { getActivities, type Activity } from '../api/activities';
-import { ActivityCard } from '../components/ActivityCard';
-import { getDistanceFromLatLngInKm } from '../utils/geo';
+import { getActivities, type Activity } from '../../api/activities';
+import { ActivityCard } from '../../components/ActivityCard';
+import { getDistanceFromLatLngInKm } from '../../utils/geo';
 
-export const ActivitiesPage = () => {
+export const ActivitiesList = () => {
   const [activities, setActivities] = useState<Activity[]>([]);
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);

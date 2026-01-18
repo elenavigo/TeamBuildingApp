@@ -1,4 +1,4 @@
-import { ActivitiesPage } from './pages/ActivitiesPage';
+import { ActivitiesList } from './pages/ActivitiesList';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         </nav>
       </aside>
 
-      <ActivitiesPage />
+      <ActivitiesList />
     </div>
   );
 }
