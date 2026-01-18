@@ -79,7 +79,7 @@ export const ActivitiesPage = () => {
         activities for your team. Just a couple of clicks away.
       </p>
 
-      <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 cursor-pointer">
         {activities.map((activity) => (
           <ActivityCard key={activity.id} activity={activity} />
         ))}
