@@ -1,37 +1,28 @@
 import { useEffect, useRef, useState } from 'react';
-import {
-  Command,
-  CommandList,
-  CommandEmpty,
-  CommandItem,
-} from '@/components/ui/command';
 import { PeopleFilter } from './peopleFilter';
 import { CategoriesFilters } from './categoriesFilter';
+import { DistanceFilter } from './distanceFilter';
 
 interface ActivityFiltersProps {
   categoriesFilter: string[];
   minPeopleFilter: number;
   maxPeopleFilter: number;
+  distanceFilter: number;
   setCategoriesFilter: (value: string[]) => void;
   setMinPeopleFilter: (value: number) => void;
   setMaxPeopleFilter: (value: number) => void;
+  setDistanceFilter: (value: number) => void;
 }
-
-const categories = [
-  'adventure',
-  'corporate',
-  'gastronomy',
-  'learning',
-  'creative',
-];
 
 export const ActivityFilters = ({
   categoriesFilter,
   minPeopleFilter,
   maxPeopleFilter,
+  distanceFilter,
   setCategoriesFilter,
   setMinPeopleFilter,
   setMaxPeopleFilter,
+  setDistanceFilter,
 }: ActivityFiltersProps) => {
   const [open, setOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement | null>(null);
@@ -70,6 +61,10 @@ export const ActivityFilters = ({
             maxPeopleFilter={maxPeopleFilter}
             setMinPeopleFilter={setMinPeopleFilter}
             setMaxPeopleFilter={setMaxPeopleFilter}
+          />
+          <DistanceFilter
+            distanceFilter={distanceFilter}
+            setDistanceFilter={setDistanceFilter}
           />
         </div>
       )}

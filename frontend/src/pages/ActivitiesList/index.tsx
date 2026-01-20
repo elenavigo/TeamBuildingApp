@@ -14,6 +14,7 @@ export const ActivitiesList = () => {
   const [minPeopleFilter, setMinPeopleFilter] = useState(2);
   const [maxPeopleFilter, setMaxPeopleFilter] = useState(40);
   const [categoriesFilter, setCategoriesFilter] = useState<string[]>([]);
+  const [distanceFilter, setDistanceFilter] = useState<number>(100);
 
   const activitiesWithDistance = (activities: Activity[]) => {
     return activities.map((activity) => ({
@@ -107,6 +108,8 @@ export const ActivitiesList = () => {
         setMaxPeopleFilter={setMaxPeopleFilter}
         categoriesFilter={categoriesFilter}
         setCategoriesFilter={setCategoriesFilter}
+        distanceFilter={distanceFilter}
+        setDistanceFilter={setDistanceFilter}
       />
 
       <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 cursor-pointer">

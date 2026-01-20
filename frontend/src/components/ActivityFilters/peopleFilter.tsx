@@ -1,5 +1,4 @@
 import { DualRangeSlider } from '../ui/dualRangeSlider';
-import People from './../../assets/users.svg?react';
 
 interface PeopleFilterProps {
   minPeopleFilter: number;
@@ -15,11 +14,10 @@ export const PeopleFilter = ({
   setMaxPeopleFilter,
 }: PeopleFilterProps) => {
   return (
-    <div className="py-5 flex gap-2 items-center">
-      <People className="inline-block h-5 w-5" />
-      <div className="w-48">
+    <div className="flex flex-col gap-8 mt-4">
+      <p className="text-sm font-medium">People</p>
+      <div className="flex items-center gap-2 pb-3">
         <DualRangeSlider
-          label={(value) => <span>{value}</span>}
           value={[minPeopleFilter, maxPeopleFilter]}
           onValueChange={(newValues: [number, number]) => {
             setMinPeopleFilter(newValues[0]);
@@ -28,6 +26,7 @@ export const PeopleFilter = ({
           min={2}
           max={40}
           step={1}
+          label={(value) => <span className="text-sm">{value}</span>}
         />
       </div>
     </div>

@@ -1,11 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
-import {
-  Command,
-  CommandList,
-  CommandEmpty,
-  CommandItem,
-} from '@/components/ui/command';
-import { PeopleFilter } from './peopleFilter';
+import { Command, CommandList, CommandItem } from '@/components/ui/command';
 
 interface CategoriesFilterProps {
   categoriesFilter: string[];
@@ -25,25 +18,25 @@ export const CategoriesFilters = ({
   setCategoriesFilter,
 }: CategoriesFilterProps) => {
   return (
-    <div className="mb-5">
+    <div>
       <p className="text-sm font-medium mb-2">Categories</p>
-
       <Command className="border rounded-md bg-white">
         <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
           {categories.map((cat) => (
             <CommandItem
               key={cat}
-              onSelect={() => {
+              onSelect={() =>
                 setCategoriesFilter(
                   categoriesFilter.includes(cat)
                     ? categoriesFilter.filter((c) => c !== cat)
                     : [...categoriesFilter, cat]
-                );
-              }}
+                )
+              }
             >
               <span className="flex-1 capitalize">{cat}</span>
-              {categoriesFilter.includes(cat) && '✓'}
+              {categoriesFilter.includes(cat) && (
+                <span className="text-blue-500 font-bold">✓</span>
+              )}
             </CommandItem>
           ))}
         </CommandList>
