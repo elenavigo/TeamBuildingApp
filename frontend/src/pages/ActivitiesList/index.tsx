@@ -65,6 +65,22 @@ export const ActivitiesList = () => {
       containerRef.current?.removeEventListener('scroll', handleScroll);
   }, [loadMore]);
 
+  useEffect(() => {
+    const applyFilters = async () => {
+      setLoading(true);
+      const data = await getActivities(undefined, {
+        min_people: minPeopleFilter,
+        max_people: maxPeopleFilter,
+        categories: categoriesFilter,
+      });
+
+      setActivities(activitiesWithDistance(data.results));
+      setLoading(false);
+    };
+
+    applyFilters();
+  }, [minPeopleFilter, maxPeopleFilter, categoriesFilter]);
+
   if (loading) {
     return (
       <p className="text-center mt-10 text-gray-500">

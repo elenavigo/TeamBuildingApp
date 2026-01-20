@@ -19,8 +19,29 @@ export type PaginatedResponse = {
 };
 
 export async function getActivities(
-  endpoint = 'http://127.0.0.1:8000/api/activities/'
+  endpoint = 'http://127.0.0.1:8000/api/activities/',
+  filters: {
+    min_people?: number;
+    max_people?: number;
+    categories?: string[];
+  }
 ): Promise<PaginatedResponse> {
+  if (filters) {
+    const params = new URLSearchParams();
+
+    if (filters.min_people) {
+      params.append('min_people', filters.min_people.toString());
+    }
+    if (filters.max_people) {
+      params.append('max_people', filters.max_people.toString());
+    }
+    if (filters.categories && filters.categories.length > 0) {
+      params.append('categories', filters.categories.join(','));
+    }
+
+    endpoint += `?${params.toString()}`;
+  }
+
   const res = await axios.get(endpoint);
   return res.data;
 }
