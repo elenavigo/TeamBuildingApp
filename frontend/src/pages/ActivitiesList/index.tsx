@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { getActivities, type Activity } from '../../api/activities';
 import { ActivityCard } from '../../components/ActivityCard';
-import { getDistanceFromLatLngInKm } from '../../utils/geo';
 import { ActivityFilters } from '../../components/ActivityFilters';
 
 export const ActivitiesList = () => {
@@ -18,23 +17,13 @@ export const ActivitiesList = () => {
   const [categoriesFilter, setCategoriesFilter] = useState<string[]>([]);
   const [distanceFilter, setDistanceFilter] = useState<number>(100);
 
-  const activitiesWithDistance = (activities: Activity[]) => {
-    return activities.map((activity) => ({
-      ...activity,
-      distance: getDistanceFromLatLngInKm(
-        activity.location.lat,
-        activity.location.lng
-      ),
-    }));
-  };
-
   const loadMore = useCallback(async () => {
     if (!nextPage) return;
 
     setLoadingMore(true);
 
     const data = await getActivities(nextPage);
-    setActivities((prev) => [...prev, ...activitiesWithDistance(data.results)]);
+    setActivities((prev) => [...prev, ...data.results]);
     setNextPage(data.next);
 
     setLoadingMore(false);
@@ -43,7 +32,7 @@ export const ActivitiesList = () => {
   useEffect(() => {
     const fetchActivities = async () => {
       const data = await getActivities();
-      setActivities(activitiesWithDistance(data.results));
+      setActivities(data.results);
       setNextPage(data.next);
       setLoading(false);
     };
@@ -90,7 +79,7 @@ export const ActivitiesList = () => {
             controller.signal
           );
 
-          setActivities(activitiesWithDistance(data.results));
+          setActivities(data.results);
         } catch (err) {
           if ((err as any).name === 'AbortError') {
             console.log('Request aborted');

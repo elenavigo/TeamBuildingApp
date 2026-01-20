@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework.pagination import PageNumberPagination
 from activities.models import Activity
 from django.db.models import Q
+from activities.utils import get_distance_from_lat_lon_km
 
 class ActivityListView(APIView):
     def get(self, request):
@@ -36,6 +37,9 @@ class ActivityListView(APIView):
                 "max_people": activity.max_people,
                 "category": activity.category,
                 "location": activity.location,
+                "distance": get_distance_from_lat_lon_km(
+                    activity.location["lat"], activity.location["lng"]
+                )
             }
             for activity in paginated_activities
         ]
