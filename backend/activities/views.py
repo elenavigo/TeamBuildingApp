@@ -9,12 +9,12 @@ class ActivityListView(APIView):
         search_term = request.query_params.get('search_term')
         min_people = request.query_params.get('min_people')
         max_people = request.query_params.get('max_people')
-        category = request.query_params.get('category')
+        categories = request.query_params.get('categories')
 
         activities = Activity.objects.all()
 
-        if category:
-            activities = activities.filter(category=category)
+        if categories:
+            activities = activities.filter(category__in=categories.split(','))
         if min_people:
             activities = activities.filter(max_people__gte=min_people)
         if max_people:
