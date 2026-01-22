@@ -1,7 +1,5 @@
 # Moments App
 
-# Moments
-
 The goal of Moments is simple: **make it easy to find and organize team activities in just a few clicks**, without spending hours searching, comparing options, or coordinating logistics.
 
 Target user are managers looking for teambuildings for their teams.
@@ -16,7 +14,8 @@ Target user are managers looking for teambuildings for their teams.
 
 ## 🏗️ Backend
 
-Django
+- Django
+- Python
 
 ### ⚡ Setup
 
@@ -46,6 +45,8 @@ python manage.py runserver
 - TypeScript
 - Tailwind CSS
 - Vite
+
+### ⚡ Setup
 
 ```bash
 cd frontend
