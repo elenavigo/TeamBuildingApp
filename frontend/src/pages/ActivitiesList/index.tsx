@@ -11,6 +11,7 @@ export const ActivitiesList = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const abortRef = useRef<AbortController | null>(null);
+  const isFirstRender = useRef(true);
 
   const [minPeopleFilter, setMinPeopleFilter] = useState(2);
   const [maxPeopleFilter, setMaxPeopleFilter] = useState(40);
@@ -58,6 +59,11 @@ export const ActivitiesList = () => {
   }, [loadMore]);
 
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+
     if (debounceRef.current) clearTimeout(debounceRef.current);
 
     debounceRef.current = setTimeout(() => {
