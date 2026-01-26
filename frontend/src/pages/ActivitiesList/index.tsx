@@ -24,6 +24,12 @@ export const ActivitiesList = () => {
     setLoadingMore(true);
 
     const data = await getActivities(nextPage);
+
+    if (data.next === nextPage) {
+      setLoadingMore(false);
+      return;
+    }
+
     setActivities((prev) => [...prev, ...data.results]);
     setNextPage(data.next);
 
