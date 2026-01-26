@@ -30,7 +30,10 @@ export const ActivitiesList = () => {
       return;
     }
 
-    setActivities((prev) => [...prev, ...data.results]);
+    setActivities((prev) => {
+      const ids = new Set(prev.map((a) => a.id));
+      return [...prev, ...data.results.filter((a) => !ids.has(a.id))];
+    });
     setNextPage(data.next);
 
     setLoadingMore(false);
