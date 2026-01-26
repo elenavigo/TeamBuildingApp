@@ -21,13 +21,15 @@ export type PaginatedResponse = {
 const API_BASE_URL =
   import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000/api';
 
+export type FiltersType = {
+  min_people?: number;
+  max_people?: number;
+  categories?: string[];
+};
+
 export async function getActivities(
   endpoint = `${API_BASE_URL}/activities/`,
-  filters?: {
-    min_people?: number;
-    max_people?: number;
-    categories?: string[];
-  },
+  filters?: FiltersType,
   signal?: AbortSignal
 ): Promise<PaginatedResponse> {
   if (filters) {
