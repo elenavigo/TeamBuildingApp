@@ -27,6 +27,7 @@ export const useActivities = () => {
 
   const [filters, setFilters] = useState<Filters>(DEFAULT_FILTERS);
 
+  const [error, setError] = useState<string | null>(null);
   const abortRef = useRef<AbortController | null>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -50,6 +51,10 @@ export const useActivities = () => {
         setNextPage(data.next);
       } catch (err) {
         console.error(err);
+        if (err.name === 'AbortError') return;
+        setError(
+          'Hey! Looks like the backend is asleep 😴. Give it a nudge by visiting this link, it’ll be ready in a few minutes.'
+        );
       } finally {
         if (append) {
           setLoadingNextPage(false);
@@ -119,5 +124,6 @@ export const useActivities = () => {
     loadMore,
     filters,
     setFilters,
+    error,
   };
 };

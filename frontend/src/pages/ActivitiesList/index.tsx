@@ -13,6 +13,7 @@ export const ActivitiesList = () => {
     loadMore,
     filters,
     setFilters,
+    error,
   } = useActivities();
 
   useEffect(() => {
@@ -30,6 +31,22 @@ export const ActivitiesList = () => {
     container.addEventListener('scroll', handleScroll);
     return () => container.removeEventListener('scroll', handleScroll);
   }, [loadMore]);
+
+  if (error) {
+    return (
+      <div className="px-5 text-center mt-10 text-gray-500">
+        <div>{error} </div>
+        <a
+          href="https://momentsapp.onrender.com/api/activities/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-500 underline hover:text-blue-700"
+        >
+          Wake it up
+        </a>
+      </div>
+    );
+  }
 
   if (loadingFirstActivities) {
     return (
