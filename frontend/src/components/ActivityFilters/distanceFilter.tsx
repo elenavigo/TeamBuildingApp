@@ -8,7 +8,8 @@ interface DistanceFilterProps {
 }
 
 const formatDistance = (distance: number) => {
-  return `${(distance / 1000).toFixed(2)} km`;
+  const formattedKm = parseFloat((distance / 1000).toFixed(2));
+  return `${formattedKm} km`;
 };
 
 export const DistanceFilter = ({
@@ -27,7 +28,7 @@ export const DistanceFilter = ({
           }
           min={0}
           max={DEFAULT_FILTERS.distance}
-          step={1}
+          step={100}
           label={formatDistance(distanceFilter)}
         />
       </div>
